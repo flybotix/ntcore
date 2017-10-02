@@ -6,6 +6,21 @@
 
 ntcore is the reimplementation of the NetworkTables protocol for both Java and C++, communicating with the former by way of a JNI interface. ntcore implements v3 of the NetworkTables spec.
 
+## Using ntcore Artifacts
+To use ntcore without downloading the entire WPILib suite, here is a sample Gradle configuration.  Note that while this will download the appropriate runtime files (e.g. ntcore.dll) it does not cover the necessary steps to add the file to the runtime path. In other words, runtime dependencies must be configured manually if using ntcore as a standalone library.
+```bash
+repositories {
+  maven {
+    url 'http://first.wpi.edu/FRC/roborio/maven/release'
+  } // WPILib
+}
+
+dependencies {
+  compile group: 'edu.wpi.first.wpilib.networktables.java', name:'NetworkTables', version:'3.1.7', classifier : 'desktop'
+  compile group: 'edu.wpi.first.wpilib.networktables.java', name:'NetworkTables', version:'3.1.7', classifier : 'sources'
+}
+```
+
 ## Build Requirements
 To build ntcore, a few requirements must be met:
 
